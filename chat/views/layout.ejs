@@ -1,0 +1,55 @@
+<html>
+  <body>
+
+    <form>
+
+      <input type="file" id="aaa" multiple >
+
+    </form>
+
+    <script type="text/javascript">
+    <!--
+	// "aaa" という ID 属性のエレメントを取得する
+	var input_file = document.getElementById("aaa");
+
+	// ------------------------------------------------------------
+	// 値が変化した時に実行されるイベント
+	// ------------------------------------------------------------
+	input_file.onchange = function (){
+
+		// ファイルが選択されたか
+		if(input_file.value){
+			console.log("ファイルが選択された:" + input_file.value);
+		}else{
+			console.log("ファイルが未選択");
+		}
+
+		// ファイルが選択されたか
+		if(input_file.value){
+
+			// FileList オブジェクトを取得する
+			var file_list = input_file.files;
+			if(file_list){
+
+				var i;
+				var num = file_list.length;
+				for(i=0;i < num;i++){
+					// File オブジェクトを取得する
+					var file = file_list[i];
+
+					// 出力テスト
+					console.log("--- id:" + i);
+					console.log("name:" + file.name);
+					console.log("size:" + file.size);
+					console.log("type:" + file.type);
+				}
+			}
+		}
+
+	};
+
+    //-->
+    </script>
+
+  </body>
+</html>
